@@ -1,0 +1,68 @@
+﻿<Window x:Class="YTDownloader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YTDownloader"
+        mc:Ignorable="d"
+        Title="MainWindow" Background="#242326" Width="450" Height="800" MinHeight="800" MinWidth="450">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}" x:Key="buttonStyle">
+            <Setter Property="Background" Value="#191919"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderThickness="0" Padding="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#151515"/>
+                </Trigger>
+                <Trigger Property="IsMouseCaptured" Value="True">
+                    <Setter Property="Background" Value="#171717"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="{x:Type TextBox}" x:Key="textboxStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <Rectangle Stroke="Black" StrokeThickness="0"/>
+                            <TextBox Foreground="#EEEEEE" FontSize="31" VerticalContentAlignment="Center" Margin="1" Background="#373539" Text="{TemplateBinding Text}" BorderThickness="0"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#151515"/>
+                </Trigger>
+                <Trigger Property="IsMouseCaptured" Value="True">
+                    <Setter Property="Background" Value="#171717"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Image Source="pack://application:,,,/Images/yt_icon.png" Width="80" Margin="0,0,15,0"/>
+            <TextBlock Foreground="#EEEEEE" FontSize="31" VerticalAlignment="Center" FontWeight="ExtraBold">Youtube Downloader</TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Margin="0,20">
+            <TextBox  Height="60" Style="{StaticResource textboxStyle}" Margin="0,10"/>
+            <Button Content="Download" Style="{StaticResource buttonStyle}" Margin="50,15" Width="350" Foreground="#EEEEEE" FontSize="35"/>
+        </StackPanel>
+    </Grid>
+</Window>
